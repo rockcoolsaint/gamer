@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+*,
+html,
+body,
+*::after,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Open-sans, sans-serif;
+}
+
+body {
+  min-height: 100h;
+  background-color: #f1efe3;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  height: 100%;
+  padding: 20px;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  gap: 20px;
+  justify-content: center;
+  padding: 60px 0px;
+}
+
+.card-wrapper {
+  position: relative;
+  width: 200px;
+  height: 300px;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  z-index: 0;
+  overflow: hidden;
+  transform: translateX(0px);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  transition: width 400ms ease-out, height 400ms ease-out, transform 400ms ease-out, box-shadow 400ms ease-out, z-index 400ms ease-out 1s;
+  transition-delay: 0s, 0s, 0s, 0s, 1s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.card .card__image-wrapper {
+  flex-grow: 1;
+  height: 0;
+}
+.card .card__image-wrapper img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.card .card__content {
+  height: 100%;
+  max-height: 50px;
+  padding: 6px;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 200ms ease-out;
+}
+.card .card__content p {
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+.card .card__content .card__extra-content {
+  padding: 12px;
+  padding-top: 32px;
+}
+.card .card__content .card__extra-content p {
+  text-align: left;
+  line-height: 1.7;
+  font-weight: 700;
+  font-size: 16px;
+}
+.card .card__content .card__extra-content p span {
+  font-weight: 400;
+}
+.card .rank {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  background-color: #d45b9f;
+  padding: 6px 10px;
+  font-size: 18px;
+  border-top-right-radius: 20px;
+}
+.card.card-active {
+  width: 300px;
+  height: 420px;
+  z-index: 10;
+  transform: translateX(-50px);
+  box-shadow: 0px 20px 45px rgba(0, 0, 0, 0.2);
+  transition-property: width, height, transform, box-shadow, z-index;
+  transition-duration: 400ms;
+  transition-timing-function: ease-out;
+  transition-delay: 0s;
+}
+.card.card-active .card__content {
+  max-height: 160px;
+}
+
+.skeleton-card {
+  -webkit-animation-duration: 2.2s;
+          animation-duration: 2.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: shimmer;
+          animation-name: shimmer;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  background: rgb(185, 185, 185);
+  background: linear-gradient(to right, #d3d3d3 8%, #dfdfdf 18%, #d3d3d3 33%);
+  background-size: 1200px 100%;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+  100% {
+    background-position: 1200px 0;
+  }
+}
+.custom-tooltip {
+  border-radius: 20px;
+  border: 2px solid red;
+  background-color: white;
+  padding: 20px 40px;
+  text-align: center;
+  outline: none;
+}
+.custom-tooltip ul {
+  list-style-type: none;
+}
+.custom-tooltip ul li {
+  line-height: 2;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
+}/*# sourceMappingURL=style.css.map */
